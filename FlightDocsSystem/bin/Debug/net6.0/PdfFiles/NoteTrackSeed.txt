@@ -1,0 +1,7 @@
+Your starting seed is:
+2914020285
+After rolling the cats you entered, your last seed is:
+1216247527
+If you made 11-rolls with a guaranteed event, or 15-rolls (3+5+7) with a step-up event, and you didn't fill the guaranteed uber in the previous form, then your seed should be:
+3967407542 (1A here is the same as 1B in the above link)
+Note that you only need to find the seed once. Save the URL. Following up, you can advance the tracks from there.
