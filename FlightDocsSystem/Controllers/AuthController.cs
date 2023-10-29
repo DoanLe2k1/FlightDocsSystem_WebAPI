@@ -1,7 +1,10 @@
-﻿using CMS_WebAPI.Models;
+﻿using Azure.Core;
+using CMS_WebAPI.Models;
 using CMS_WebAPI.Service;
+using FlightDocsSystem.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -15,36 +18,65 @@ namespace CMS_WebAPI.Controllers
         public static User user = new User();
         private readonly IConfiguration _configuration;
         private readonly IUserService _userService;
-
-        public AuthController(IConfiguration configuration, IUserService userService)
+        private readonly FlightDocsSystemWebAPIDbContext _dbContext;
+        public AuthController(IConfiguration configuration, IUserService userService, FlightDocsSystemWebAPIDbContext dbContext)
         {
             _configuration = configuration;
             _userService = userService;
+            _dbContext = dbContext;
         }
 
         [HttpPost("Register")]
         public async Task<ActionResult<User>> Register(UserDto request)
         {
+            var existingUser = await _dbContext.Users.FirstOrDefaultAsync(u => u.Username == request.Username);
+            if (existingUser != null)
+            {
+                return BadRequest("User already exists.");
+            }
+
+            // Tạo hash mật khẩu
             CreatePasswordHash(request.Password, out byte[] passwordHash, out byte[] passwordSalt);
 
-            user.Username = request.Username;
-            user.PasswordHash = passwordHash;
-            user.PasswordSalt = passwordSalt;
+            // Tạo đối tượng User mới
+            var newUser = new User
+            {
+                Username = request.Username,
+                PasswordHash = passwordHash,
+                PasswordSalt = passwordSalt
+            };
 
-            return Ok(user);
+            // Lưu người dùng vào cơ sở dữ liệu
+            await _dbContext.Users.AddAsync(newUser);
+            await _dbContext.SaveChangesAsync();
+            return Ok(newUser);
         }
 
         [HttpPost("Login")]
-        public async Task<ActionResult<string>> Login(UserDto request)
+        public async Task<IActionResult> Login([FromBody] UserDto userDto, [FromQuery] string username)
         {
-            if (user.Username != request.Username)
+            if (string.IsNullOrEmpty(userDto.Password))
             {
-                return BadRequest("User not found.");
+                return BadRequest("Invalid password.");
             }
 
-            if (!VerifyPasswordHash(request.Password, user.PasswordHash, user.PasswordSalt))
+            // Kiểm tra xem có tên người dùng (username) không
+            if (string.IsNullOrEmpty(username))
             {
-                return BadRequest("Wrong password.");
+                return BadRequest("Invalid username.");
+            }
+
+            // Tìm kiếm người dùng trong cơ sở dữ liệu
+            var existingUser = await _dbContext.Users.FirstOrDefaultAsync(u => u.Username == username);
+            if (existingUser == null)
+            {
+                return BadRequest("Invalid username or password.");
+            }
+
+            // Kiểm tra mật khẩu
+            if (!VerifyPasswordHash(userDto.Password, existingUser.PasswordHash, existingUser.PasswordSalt))
+            {
+                return BadRequest("Invalid username or password.");
             }
 
             string token = CreateToken(user);

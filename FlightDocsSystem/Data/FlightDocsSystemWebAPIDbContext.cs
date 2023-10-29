@@ -1,4 +1,5 @@
-﻿using FlightDocsSystem.Models;
+﻿using CMS_WebAPI.Models;
+using FlightDocsSystem.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 
@@ -11,6 +12,7 @@ namespace FlightDocsSystem.Data
 
         }
         public DbSet<FlightDoc> FlightDocs { get; set; }
+        public DbSet<User> Users { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<FlightDoc>()

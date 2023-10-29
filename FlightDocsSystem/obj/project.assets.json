@@ -3145,11 +3145,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Downloads\\freecouse\\Project\\FlightDocsSystem\\FlightDocsSystem.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Downloads\\freecouse\\Project\\FlightDocsSystem_WebAPI\\FlightDocsSystem\\FlightDocsSystem.csproj",
       "projectName": "FlightDocsSystem",
-      "projectPath": "C:\\Users\\Admin\\Downloads\\freecouse\\Project\\FlightDocsSystem\\FlightDocsSystem.csproj",
+      "projectPath": "C:\\Users\\Admin\\Downloads\\freecouse\\Project\\FlightDocsSystem_WebAPI\\FlightDocsSystem\\FlightDocsSystem.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Downloads\\freecouse\\Project\\FlightDocsSystem\\obj\\",
+      "outputPath": "C:\\Users\\Admin\\Downloads\\freecouse\\Project\\FlightDocsSystem_WebAPI\\FlightDocsSystem\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
