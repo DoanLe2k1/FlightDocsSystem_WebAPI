@@ -20,7 +20,7 @@ builder.Services.AddSwaggerGen(options =>
 {
     options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
     {
-        Description = "Standard Authorization header using the Bearer scheme (\"bearer {token}\")",
+        Description = "Standard Authorization header using the Bearer scheme (\"bearer + {token}\")",
         In = ParameterLocation.Header,
         Name = "Authorization",
         Type = SecuritySchemeType.ApiKey
@@ -49,6 +49,7 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IFlightDocService, FlightDocService>();
+builder.Services.AddScoped<IFlightService, FlightService>();
 builder.Services.AddDbContext<FlightDocsSystemWebAPIDbContext>(options => {
     options.UseSqlServer(builder.Configuration.GetConnectionString("FlightDocsSystem"));
 });

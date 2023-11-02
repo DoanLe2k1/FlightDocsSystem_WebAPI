@@ -12,6 +12,7 @@ namespace FlightDocsSystem.Data
 
         }
         public DbSet<FlightDoc> FlightDocs { get; set; }
+        public DbSet<Flight> Flights { get; set; }
         public DbSet<User> Users { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

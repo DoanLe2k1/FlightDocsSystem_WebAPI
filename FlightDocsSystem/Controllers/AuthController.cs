@@ -60,7 +60,7 @@ namespace CMS_WebAPI.Controllers
                 return BadRequest("Invalid password.");
             }
 
-            // Kiểm tra xem có tên người dùng (username) không
+            // Kiểm tra xem có tên người dùng không
             if (string.IsNullOrEmpty(username))
             {
                 return BadRequest("Invalid username.");
@@ -76,14 +76,12 @@ namespace CMS_WebAPI.Controllers
             // Kiểm tra mật khẩu
             if (!VerifyPasswordHash(userDto.Password, existingUser.PasswordHash, existingUser.PasswordSalt))
             {
-                return BadRequest("Invalid username or password.");
+                return BadRequest("Invalid password.");
             }
 
             string token = CreateToken(user);
-
             var refreshToken = GenerateRefreshToken();
             SetRefreshToken(refreshToken);
-
             return Ok(token);
         }
 
