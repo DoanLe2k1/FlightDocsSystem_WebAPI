@@ -180,3 +180,4 @@ C:\Users\Admin\Downloads\freecouse\Project\FlightDocsSystem_WebAPI\FlightDocsSys
 C:\Users\Admin\Downloads\freecouse\Project\FlightDocsSystem_WebAPI\FlightDocsSystem\obj\Debug\net6.0\FlightDocsSystem.pdb
 C:\Users\Admin\Downloads\freecouse\Project\FlightDocsSystem_WebAPI\FlightDocsSystem\obj\Debug\net6.0\FlightDocsSystem.genruntimeconfig.cache
 C:\Users\Admin\Downloads\freecouse\Project\FlightDocsSystem_WebAPI\FlightDocsSystem\obj\Debug\net6.0\ref\FlightDocsSystem.dll
+C:\Users\Admin\Downloads\freecouse\Project\FlightDocsSystem_WebAPI\FlightDocsSystem\bin\Debug\net6.0\FlightDocsSystem.staticwebassets.runtime.json

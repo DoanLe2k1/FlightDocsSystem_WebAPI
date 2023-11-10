@@ -1,11 +1,54 @@
 {
   "Version": 1,
-  "Hash": "sfzAbhEKs2sJm4hw7MtBublebaeEH7ylbYBRu7qgn8Q=",
+  "Hash": "4Ynxvph2y7bc+GO3JcxcmWPmD/UFUNRAgXZbHHhuuFY=",
   "Source": "FlightDocsSystem",
   "BasePath": "_content/FlightDocsSystem",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "FlightDocsSystem\\wwwroot",
+      "Source": "FlightDocsSystem",
+      "ContentRoot": "C:\\Users\\Admin\\Downloads\\freecouse\\Project\\FlightDocsSystem_WebAPI\\FlightDocsSystem\\wwwroot\\",
+      "BasePath": "_content/FlightDocsSystem",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Admin\\Downloads\\freecouse\\Project\\FlightDocsSystem_WebAPI\\FlightDocsSystem\\wwwroot\\FlightDoc\\File\\BoCanhCung_f8f13b02.jpg",
+      "SourceId": "FlightDocsSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\Downloads\\freecouse\\Project\\FlightDocsSystem_WebAPI\\FlightDocsSystem\\wwwroot\\",
+      "BasePath": "_content/FlightDocsSystem",
+      "RelativePath": "FlightDoc/File/BoCanhCung_f8f13b02.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\FlightDoc\\File\\BoCanhCung_f8f13b02.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\Downloads\\freecouse\\Project\\FlightDocsSystem_WebAPI\\FlightDocsSystem\\wwwroot\\FlightDoc\\File\\UserManual-CMS-v0.1_aa941735.pdf",
+      "SourceId": "FlightDocsSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\Downloads\\freecouse\\Project\\FlightDocsSystem_WebAPI\\FlightDocsSystem\\wwwroot\\",
+      "BasePath": "_content/FlightDocsSystem",
+      "RelativePath": "FlightDoc/File/UserManual-CMS-v0.1_aa941735.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\FlightDoc\\File\\UserManual-CMS-v0.1_aa941735.pdf"
+    }
+  ]
 }

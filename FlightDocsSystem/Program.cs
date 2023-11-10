@@ -1,4 +1,3 @@
-using CMS_WebAPI.Service;
 using FlightDocsSystem.Data;
 using FlightDocsSystem.Service;
 using Microsoft.AspNetCore.Authentication;
@@ -50,6 +49,8 @@ builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IFlightDocService, FlightDocService>();
 builder.Services.AddScoped<IFlightService, FlightService>();
+builder.Services.AddScoped<IGroupService, GroupService>();
+builder.Services.AddScoped<IUserGroupService, UserGroupService>();
 builder.Services.AddDbContext<FlightDocsSystemWebAPIDbContext>(options => {
     options.UseSqlServer(builder.Configuration.GetConnectionString("FlightDocsSystem"));
 });

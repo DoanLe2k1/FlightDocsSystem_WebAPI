@@ -1,5 +1,4 @@
-﻿using CMS_WebAPI.Models;
-using FlightDocsSystem.Models;
+﻿using FlightDocsSystem.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 
@@ -14,13 +13,8 @@ namespace FlightDocsSystem.Data
         public DbSet<FlightDoc> FlightDocs { get; set; }
         public DbSet<Flight> Flights { get; set; }
         public DbSet<User> Users { get; set; }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<FlightDoc>()
-                .HasKey(p => p.FlightDocId);
-            modelBuilder.Entity<FlightDoc>()
-                .Property(p => p.FlightDocId)
-                .ValueGeneratedNever();
-        }
+        public DbSet<Group> Groups { get; set; }
+        public DbSet<UserGroup> UserGroups { get; set; }
+        
     }
 }

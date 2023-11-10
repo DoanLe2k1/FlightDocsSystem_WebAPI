@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Admin\\Downloads\\freecouse\\Project\\FlightDocsSystem_WebAPI\\FlightDocsSystem\\wwwroot\\FlightDoc\\File\\BoCanhCung_f8f13b02.jpg",
+      "PackagePath": "staticwebassets\\FlightDoc\\File\\BoCanhCung_f8f13b02.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Downloads\\freecouse\\Project\\FlightDocsSystem_WebAPI\\FlightDocsSystem\\wwwroot\\FlightDoc\\File\\UserManual-CMS-v0.1_aa941735.pdf",
+      "PackagePath": "staticwebassets\\FlightDoc\\File\\UserManual-CMS-v0.1_aa941735.pdf"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.FlightDocsSystem.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.FlightDocsSystem.props",
+      "PackagePath": "build\\FlightDocsSystem.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.FlightDocsSystem.props",
+      "PackagePath": "buildMultiTargeting\\FlightDocsSystem.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.FlightDocsSystem.props",
+      "PackagePath": "buildTransitive\\FlightDocsSystem.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

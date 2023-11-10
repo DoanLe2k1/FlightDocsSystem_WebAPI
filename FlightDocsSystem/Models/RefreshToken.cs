@@ -1,4 +1,4 @@
-﻿namespace CMS_WebAPI.Models
+﻿namespace FlightDocsSystem.Models
 {
     public class RefreshToken
     {
