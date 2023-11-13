@@ -4,6 +4,7 @@ using FlightDocsSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FlightDocsSystem.Migrations
 {
     [DbContext(typeof(FlightDocsSystemWebAPIDbContext))]
-    partial class FlightDocsSystemWebAPIDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231113055002_DBContext3")]
+    partial class DBContext3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -91,32 +94,6 @@ namespace FlightDocsSystem.Migrations
                     b.ToTable("FlightDocs");
                 });
 
-            modelBuilder.Entity("FlightDocsSystem.Models.FlightJourney", b =>
-                {
-                    b.Property<int>("JourneyId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("JourneyId"));
-
-                    b.Property<int>("FlightId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("JourneyDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("JourneyId");
-
-                    b.HasIndex("FlightId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("FlightJourneys");
-                });
-
             modelBuilder.Entity("FlightDocsSystem.Models.Group", b =>
                 {
                     b.Property<int>("GroupId")
@@ -141,6 +118,23 @@ namespace FlightDocsSystem.Migrations
                     b.ToTable("Groups");
                 });
 
+            modelBuilder.Entity("FlightDocsSystem.Models.JourneyFlight", b =>
+                {
+                    b.Property<int>("JourneyFlightId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("JourneyFlightId"));
+
+                    b.Property<string>("FlightNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("JourneyFlightId");
+
+                    b.ToTable("JourneyFlights");
+                });
+
             modelBuilder.Entity("FlightDocsSystem.Models.User", b =>
                 {
                     b.Property<int>("UserId")
@@ -152,6 +146,9 @@ namespace FlightDocsSystem.Migrations
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("JourneyFlightId")
+                        .HasColumnType("int");
 
                     b.Property<byte[]>("PasswordHash")
                         .IsRequired()
@@ -189,6 +186,8 @@ namespace FlightDocsSystem.Migrations
 
                     b.HasKey("UserId");
 
+                    b.HasIndex("JourneyFlightId");
+
                     b.ToTable("Users");
                 });
 
@@ -215,23 +214,11 @@ namespace FlightDocsSystem.Migrations
                     b.ToTable("UserGroups");
                 });
 
-            modelBuilder.Entity("FlightDocsSystem.Models.FlightJourney", b =>
+            modelBuilder.Entity("FlightDocsSystem.Models.User", b =>
                 {
-                    b.HasOne("FlightDocsSystem.Models.Flight", "Flight")
-                        .WithMany()
-                        .HasForeignKey("FlightId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("FlightDocsSystem.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Flight");
-
-                    b.Navigation("User");
+                    b.HasOne("FlightDocsSystem.Models.JourneyFlight", null)
+                        .WithMany("Pilots")
+                        .HasForeignKey("JourneyFlightId");
                 });
 
             modelBuilder.Entity("FlightDocsSystem.Models.UserGroup", b =>
@@ -251,6 +238,11 @@ namespace FlightDocsSystem.Migrations
                     b.Navigation("Group");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("FlightDocsSystem.Models.JourneyFlight", b =>
+                {
+                    b.Navigation("Pilots");
                 });
 #pragma warning restore 612, 618
         }

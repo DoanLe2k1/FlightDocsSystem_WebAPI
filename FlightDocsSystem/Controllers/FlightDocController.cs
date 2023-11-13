@@ -19,13 +19,13 @@ namespace FlightDocsSystem.Controllers
             _flightDocService = flightDocService;
             _environment = webHostEnvironment;
         }
-        [HttpGet("List FlightDocs")]
+        [HttpGet("List FlightDocs"), Authorize(Roles = "Admin")]
         public async Task<ActionResult<List<FlightDoc>>> GetAllFlightDocs()
         {
             var flightDocs = await _flightDocService.GetAllFlightDocs();
             return flightDocs;
         }
-        [HttpGet("Search by Id")]
+        [HttpGet("Search by Id"), Authorize(Roles = "Admin")]
         public async Task<ActionResult<FlightDoc>> GetFlightDoc(int flightDocId)
         {
             var flightDoc = await _flightDocService.GetFlightDoc(flightDocId);
@@ -35,7 +35,7 @@ namespace FlightDocsSystem.Controllers
             }
             return flightDoc;
         }
-        [HttpGet("Search by Docunment, Type")]
+        [HttpGet("Search by Docunment, Type"), Authorize(Roles = "Admin")]
         public async Task<ActionResult<List<FlightDoc>>> SearchFlightDocs(string documentName, string type)
         {
             var flightDocs = await _flightDocService.SearchFlightDocs(documentName, type);
@@ -43,14 +43,14 @@ namespace FlightDocsSystem.Controllers
         }
         
 
-        [HttpPost("Add FlightDoc")]
+        [HttpPost("Add FlightDoc"), Authorize(Roles = "Admin")]
         public async Task<ActionResult<int>> AddFlightDoc(FlightDoc flightDoc)
         {
             var flightDocId = await _flightDocService.AddFlightDoc(flightDoc);
             return CreatedAtAction(nameof(GetFlightDoc), new { flightDocId }, flightDocId);
         }
 
-        [HttpPut("Update FlightDoc")]
+        [HttpPut("Update FlightDoc"), Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateFlightDoc(int flightDocId, FlightDoc flightDoc)
         {
             if (flightDocId != flightDoc.FlightDocId)
@@ -63,14 +63,14 @@ namespace FlightDocsSystem.Controllers
             return NoContent();
         }
 
-        [HttpDelete("Delete FlightDoc")]
+        [HttpDelete("Delete FlightDoc"), Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteFlightDoc(int flightDocId)
         {
             await _flightDocService.DeleteFlightDoc(flightDocId);
             return NoContent();
         }
 
-        [HttpPost("Add-Update File")]
+        [HttpPost("Add-Update File"), Authorize(Roles = "Admin")]
         public IActionResult AddOrUpdateAvatar(int flightDocId, IFormFile file)
         {
             if (file == null || file.Length == 0)
@@ -103,7 +103,7 @@ namespace FlightDocsSystem.Controllers
 
             return Ok();
         }
-        [HttpDelete("Delete File")]
+        [HttpDelete("Delete File"), Authorize(Roles = "Admin")]
         public IActionResult DeleteAvatar(int flightDocId)
         {
             // Gọi phương thức RemoveAvatar trong repository

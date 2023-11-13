@@ -11,7 +11,6 @@ namespace FlightDocsSystem.Models
         public string Position { get; set; } = string.Empty;
         public string PhoneNumber { get; set; } = string.Empty;
         public string Role { get; set; } = string.Empty;
-
         //JWT
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }

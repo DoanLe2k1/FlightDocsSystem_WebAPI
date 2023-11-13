@@ -32,5 +32,21 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\FlightDoc\File\UserManual-CMS-v0.1_aa941735.pdf))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\FlightDoc\File\Yeu_cau_phan_mem_v1.1_7b5c237d.pdf))">
+      <SourceType>Package</SourceType>
+      <SourceId>FlightDocsSystem</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FlightDocsSystem</BasePath>
+      <RelativePath>FlightDoc/File/Yeu_cau_phan_mem_v1.1_7b5c237d.pdf</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\FlightDoc\File\Yeu_cau_phan_mem_v1.1_7b5c237d.pdf))</OriginalItemSpec>
+    </StaticWebAsset>
   </ItemGroup>
 </Project>

@@ -1,5 +1,6 @@
 ﻿using FlightDocsSystem.Models;
 using FlightDocsSystem.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FlightDocsSystem.Controllers
@@ -31,7 +32,7 @@ namespace FlightDocsSystem.Controllers
             return Ok(flight);
         }
 
-        [HttpPost("Add Flight")]
+        [HttpPost("Add Flight"), Authorize(Roles = "Admin")]
         public async Task<ActionResult> AddFlight(Flight flight)
         {
             flight.FlightDate = DateTime.Now.Date;
@@ -40,7 +41,7 @@ namespace FlightDocsSystem.Controllers
             return Ok();
         }
 
-        [HttpPut("Update Flight")]
+        [HttpPut("Update Flight"), Authorize(Roles = "Admin")]
         public async Task<ActionResult> UpdateFlight(int flightId, Flight flight)
         {
             flight.FlightDate = DateTime.Now.Date;
@@ -49,7 +50,7 @@ namespace FlightDocsSystem.Controllers
             return Ok();
         }
 
-        [HttpDelete("Delete Flight")]
+        [HttpDelete("Delete Flight"), Authorize(Roles = "Admin")]
         public async Task<ActionResult> DeleteFlight(int flightId)
         {
             await _flightService.DeleteFlight(flightId);

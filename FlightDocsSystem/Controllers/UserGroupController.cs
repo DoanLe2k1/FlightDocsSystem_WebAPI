@@ -1,4 +1,5 @@
 ﻿using FlightDocsSystem.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FlightDocsSystem.Controllers
@@ -12,7 +13,7 @@ namespace FlightDocsSystem.Controllers
             _userGroupService = userGroupService;
         }
 
-        [HttpPost("Add User to Group")]
+        [HttpPost("Add User to Group"), Authorize(Roles = "Admin")]
         public IActionResult AddUserToGroup(int userId, int groupId)
         {
             try

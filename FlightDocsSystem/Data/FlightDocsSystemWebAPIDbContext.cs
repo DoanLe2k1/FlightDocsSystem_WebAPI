@@ -15,6 +15,6 @@ namespace FlightDocsSystem.Data
         public DbSet<User> Users { get; set; }
         public DbSet<Group> Groups { get; set; }
         public DbSet<UserGroup> UserGroups { get; set; }
-        
+        public DbSet<FlightJourney> FlightJourneys { get;set; }
     }
 }

@@ -33,14 +33,14 @@ namespace FlightDocsSystem.Controllers
 
 
         [HttpPost("Login")]
-        public async Task<IActionResult> Login(string username, string password)
+        public async Task<IActionResult> Login(string email, string password)
         {
             try
             {
-                var token = await _userService.Login(username, password);
+                var token = await _userService.Login(email, password);
                 if (token == null)
                 {
-                    return Unauthorized("Sai tên đăng nhập hoặc mật khẩu");
+                    return Unauthorized("Sai email hoặc mật khẩu");
                 }
 
                 return Ok(token);

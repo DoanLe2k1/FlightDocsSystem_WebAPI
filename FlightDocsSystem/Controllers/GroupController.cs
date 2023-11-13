@@ -30,14 +30,14 @@ namespace FlightDocsSystem.Controllers
             return Ok(groups);
         }
         [Authorize]
-        [HttpPost("Add Group")]
+        [HttpPost("Add Group"), Authorize(Roles = "Admin")]
         public async Task<ActionResult<int>> AddGroup(Group group)
         {
             var groupId = await _groupService.AddGroup(group);
             return CreatedAtAction(nameof(GetGroup), new { groupId }, groupId);
         }
 
-        [HttpPut("Update Group")]
+        [HttpPut("Update Group"), Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateGroup(int groupId, Group group)
         {
             if (groupId != group.GroupId)
@@ -50,7 +50,7 @@ namespace FlightDocsSystem.Controllers
                 return NotFound();
         }
 
-        [HttpDelete("Delete Group")]
+        [HttpDelete("Delete Group"), Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteGroup(int groupId)
         {
             var result = await _groupService.DeleteGroup(groupId);

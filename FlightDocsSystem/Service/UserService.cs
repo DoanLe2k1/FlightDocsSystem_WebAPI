@@ -85,26 +85,7 @@ namespace FlightDocsSystem.Service
             SetRefreshToken(refreshToken, existingUser);
             return new ObjectResult(token) { StatusCode = 200 };
         }
-        public async Task<bool> UpdateUser(int userId, UserDto userDto)
-        {
-            // Tìm kiếm người dùng cần cập nhật
-            var user = await _dbContext.Users.FindAsync(userId);
-
-            if (user == null)
-            {
-                throw new Exception("Người dùng không tồn tại");
-            }
-
-            // Cập nhật thông tin người dùng từ UserDto
-            user.Username = userDto.Username;
-            user.Email = userDto.Email;
-            user.PhoneNumber = userDto.PhoneNumber;
-
-            // Lưu thay đổi vào cơ sở dữ liệu
-            _dbContext.Users.Update(user);
-            await _dbContext.SaveChangesAsync();
-            return true;
-        }
+       
 
 
         // Khu vực xử lý token 

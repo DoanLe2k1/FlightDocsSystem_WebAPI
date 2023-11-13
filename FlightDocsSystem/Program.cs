@@ -51,6 +51,7 @@ builder.Services.AddScoped<IFlightDocService, FlightDocService>();
 builder.Services.AddScoped<IFlightService, FlightService>();
 builder.Services.AddScoped<IGroupService, GroupService>();
 builder.Services.AddScoped<IUserGroupService, UserGroupService>();
+builder.Services.AddScoped<IFlightJourneyService, FlightJourneyService>();
 builder.Services.AddDbContext<FlightDocsSystemWebAPIDbContext>(options => {
     options.UseSqlServer(builder.Configuration.GetConnectionString("FlightDocsSystem"));
 });

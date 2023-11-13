@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4Ynxvph2y7bc+GO3JcxcmWPmD/UFUNRAgXZbHHhuuFY=",
+  "Hash": "z8mJNOusWCpGOT6HEIktnPUP7odEJpzxGCQ54GgLtkk=",
   "Source": "FlightDocsSystem",
   "BasePath": "_content/FlightDocsSystem",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\FlightDoc\\File\\UserManual-CMS-v0.1_aa941735.pdf"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\Downloads\\freecouse\\Project\\FlightDocsSystem_WebAPI\\FlightDocsSystem\\wwwroot\\FlightDoc\\File\\Yeu_cau_phan_mem_v1.1_7b5c237d.pdf",
+      "SourceId": "FlightDocsSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\Downloads\\freecouse\\Project\\FlightDocsSystem_WebAPI\\FlightDocsSystem\\wwwroot\\",
+      "BasePath": "_content/FlightDocsSystem",
+      "RelativePath": "FlightDoc/File/Yeu_cau_phan_mem_v1.1_7b5c237d.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\FlightDoc\\File\\Yeu_cau_phan_mem_v1.1_7b5c237d.pdf"
     }
   ]
 }
